@@ -24,7 +24,6 @@ import {
 import { vi } from 'date-fns/locale';
 import { motion, AnimatePresence } from 'motion/react';
 import Logo from './Logo';
-import { PWAInstallButton } from './MobilePWASupport';
 
 interface HeaderProps {
   activeTab: string;
@@ -99,7 +98,6 @@ const Header: React.FC<HeaderProps> = ({
       </div>
 
       <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-        <PWAInstallButton variant="header" />
 
         {setDarkMode && (
           <button

@@ -14,7 +14,6 @@ import {
 import { cn } from '../lib/utils';
 import { motion, AnimatePresence } from 'motion/react';
 import Logo from './Logo';
-import { PWAInstallButton } from './MobilePWASupport';
 
 interface SidebarProps {
   activeTab: string;
@@ -82,7 +81,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
       <aside
         className={cn(
-          'fixed lg:relative inset-y-0 left-0 w-72 bg-gradient-to-b from-emerald-900 via-teal-800 to-teal-900 text-white border-r border-teal-700/60 shadow-xl z-[100] flex flex-col transition-transform duration-300 lg:translate-x-0',
+          'fixed lg:relative inset-y-0 left-0 w-[82vw] max-w-72 sm:w-72 bg-gradient-to-b from-emerald-900 via-teal-800 to-teal-900 text-white border-r border-teal-700/60 shadow-xl z-[100] flex flex-col transition-transform duration-300 lg:translate-x-0',
           isOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
@@ -152,12 +151,8 @@ const Sidebar: React.FC<SidebarProps> = ({
           })}
         </div>
 
-        {/* Mobile App Install + Account Footer */}
-        <div className="p-4 border-t border-white/15 space-y-3 bg-teal-950/35">
-          <PWAInstallButton
-            variant="sidebar"
-            className="bg-white/12 text-white border-white/20 hover:bg-white hover:text-teal-900"
-          />
+        {/* Account Footer */}
+        <div className="p-4 border-t border-white/15 space-y-3 bg-teal-950/35 pb-safe">
 
           <div className="flex items-center gap-3 p-3 bg-white/10 rounded-xl border border-white/15">
             <div className="w-9 h-9 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center text-sm font-extrabold shrink-0">

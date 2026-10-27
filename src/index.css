@@ -69,19 +69,27 @@
 
   /* Crisp card without fractional scale transform so text stays pixel-sharp */
   .saas-card {
-    @apply bg-white p-6 rounded-[--radius-card] border border-slate-200/90 shadow-[--shadow-soft] transition-colors duration-200 hover:border-teal-500/40;
+    @apply bg-white p-4 sm:p-6 rounded-[--radius-card] border border-slate-200/90 shadow-[--shadow-soft] transition-colors duration-200 hover:border-teal-500/40;
   }
 
   .dark .saas-card {
     @apply bg-slate-900 border-slate-800 shadow-none hover:border-teal-500/40;
   }
 
+  .input-field {
+    @apply w-full min-h-[44px] px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-sm font-medium text-slate-900 outline-none transition-colors focus:border-teal-600 focus:ring-2 focus:ring-teal-500/20;
+  }
+
+  .dark .input-field {
+    @apply bg-slate-800 border-slate-700 text-slate-100 focus:border-teal-400;
+  }
+
   .btn-primary {
-    @apply min-h-[44px] px-5 py-2.5 bg-primary text-white rounded-[--radius-button] font-bold text-sm transition-colors duration-200 hover:bg-primary-hover shadow-sm flex items-center justify-center gap-2;
+    @apply min-h-[44px] px-4 sm:px-5 py-2.5 bg-primary text-white rounded-[--radius-button] font-bold text-sm transition-colors duration-200 hover:bg-primary-hover shadow-sm flex items-center justify-center gap-2;
   }
 
   .btn-secondary {
-    @apply min-h-[44px] px-5 py-2.5 bg-white text-slate-800 border border-slate-300 rounded-[--radius-button] font-bold text-sm transition-colors duration-200 hover:bg-slate-50 hover:border-slate-400 flex items-center justify-center gap-2;
+    @apply min-h-[44px] px-4 sm:px-5 py-2.5 bg-white text-slate-800 border border-slate-300 rounded-[--radius-button] font-bold text-sm transition-colors duration-200 hover:bg-slate-50 hover:border-slate-400 flex items-center justify-center gap-2;
   }
 
   .dark .btn-secondary {

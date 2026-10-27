@@ -46,8 +46,7 @@ import {
   Eye,
   EyeOff,
   Calculator,
-  CheckCircle2,
-  Smartphone
+  CheckCircle2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import * as XLSX from 'xlsx';
@@ -78,7 +77,7 @@ import Logo from './components/Logo';
 import SectionBanner from './components/SectionBanner';
 import StudentLearningSection, { deriveAutoClassName } from './components/StudentLearningSection';
 import TaxReportSection from './components/TaxReportSection';
-import { OfflineNoticeBar, MobileBottomNav, PWAInstallButton } from './components/MobilePWASupport';
+import { OfflineNoticeBar, MobileBottomNav } from './components/MobilePWASupport';
 
 // --- Utilities ---
 
@@ -823,7 +822,7 @@ export default function App() {
   }
 
   return (
-    <div className="flex h-screen bg-bg-light dark:bg-bg-dark font-sans text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-200">
+    <div className="flex h-[100dvh] bg-bg-light dark:bg-bg-dark font-sans text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-200">
       <Sidebar 
         activeTab={activeTab} 
         setActiveTab={setActiveTab} 
@@ -991,7 +990,7 @@ export default function App() {
         </AnimatePresence>
 
         {/* Main Content Area */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 custom-scrollbar">
+        <main className="flex-1 overflow-y-auto p-3.5 sm:p-6 lg:p-8 pb-24 lg:pb-8 custom-scrollbar">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -1096,26 +1095,21 @@ function DashboardSection({
       {/* Main Homepage Card — Matching Image 1 Layout */}
       <div className="w-full rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden shadow-sm">
         {/* Top Deep Forest-Emerald Banner */}
-        <div className="bg-gradient-to-r from-[#065f46] via-[#075e46] to-[#054d3b] px-5 py-6 sm:px-8 sm:py-8 text-white w-full">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 w-full">
-            <div className="flex items-start sm:items-center gap-4 sm:gap-5 min-w-0 flex-1">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl p-2 shadow-xs flex items-center justify-center shrink-0">
-                <Logo className="w-full h-full" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-200/95">
-                  HỆ THỐNG QUẢN LÝ GIÁO DỤC HOÀNG GIA · {currentUser?.email || '0366000555'}
-                </p>
-                <h2 className="text-xl sm:text-2xl lg:text-[28px] font-extrabold tracking-tight text-white leading-tight mt-0.5 uppercase">
-                  CHÀO MỪNG QUÝ THẦY CÔ ĐẾN VỚI HOÀNG GIA
-                </h2>
-                <p className="w-full text-sm sm:text-base lg:text-[16px] leading-relaxed text-emerald-50/95 font-medium mt-2">
-                  Hệ thống quản trị toàn diện dành riêng cho các thầy cô và trung tâm dạy thêm — tự động hóa hồ sơ học sinh, sắp lớp điểm danh, quản lý thu chi và kê khai báo cáo thuế hộ kinh doanh.
-                </p>
-              </div>
+        <div className="bg-gradient-to-r from-[#065f46] via-[#075e46] to-[#054d3b] px-4 py-5 sm:px-8 sm:py-8 text-white w-full">
+          <div className="flex items-start sm:items-center gap-3.5 sm:gap-5 w-full">
+            <div className="w-14 h-14 sm:w-20 sm:h-20 bg-white rounded-2xl p-2 shadow-xs flex items-center justify-center shrink-0">
+              <Logo className="w-full h-full" />
             </div>
-            <div className="flex flex-wrap items-center gap-2.5 shrink-0">
-              <PWAInstallButton variant="banner" />
+            <div className="min-w-0 flex-1">
+              <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-200/95">
+                HỆ THỐNG QUẢN LÝ GIÁO DỤC HOÀNG GIA · {currentUser?.email || '0366000555'}
+              </p>
+              <h2 className="text-lg sm:text-2xl lg:text-[28px] font-extrabold tracking-tight text-white leading-tight mt-0.5 uppercase">
+                CHÀO MỪNG QUÝ THẦY CÔ ĐẾN VỚI HOÀNG GIA
+              </h2>
+              <p className="w-full text-xs sm:text-base lg:text-[16px] leading-relaxed text-emerald-50/95 font-medium mt-1.5 sm:mt-2">
+                Hệ thống quản trị toàn diện dành riêng cho các thầy cô và trung tâm dạy thêm — tự động hóa hồ sơ học sinh, sắp lớp điểm danh, quản lý thu chi và kê khai báo cáo thuế hộ kinh doanh.
+              </p>
             </div>
           </div>
         </div>
@@ -1201,34 +1195,14 @@ function DashboardSection({
             Kỳ: {reportPeriod || 'Chưa chọn kỳ'}
           </p>
         </div>
-        <div className="saas-card !p-5">
+        <div className="saas-card !p-4 sm:!p-5">
           <p className="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">Tổng doanh thu thuế năm</p>
-          <p className="text-2xl font-extrabold text-[#0b6e4f] dark:text-emerald-400 mt-1.5 tabular-nums">
+          <p className="text-xl sm:text-2xl font-extrabold text-[#0b6e4f] dark:text-emerald-400 mt-1.5 tabular-nums">
             {annualTaxRevenue.toLocaleString('vi-VN')} <span className="text-xs font-semibold text-slate-500">đ</span>
           </p>
           <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 mt-1">
             Năm {new Date().getFullYear()} (12 tháng)
           </p>
-        </div>
-      </div>
-
-      {/* Mobile Android & iOS Support Strip */}
-      <div className="saas-card !p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-start sm:items-center gap-3.5">
-          <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-[#0b6e4f] dark:text-emerald-400 flex items-center justify-center shrink-0">
-            <Smartphone className="w-5 h-5" />
-          </div>
-          <div>
-            <h3 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white">
-              Sử dụng đồng bộ trên Điện thoại Android &amp; iOS (iPhone / iPad)
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
-              Cài đặt ứng dụng trực tiếp ra màn hình chính điện thoại để điểm danh lớp học và nhập doanh thu mọi lúc, mọi nơi.
-            </p>
-          </div>
-        </div>
-        <div className="shrink-0">
-          <PWAInstallButton variant="header" />
         </div>
       </div>
     </div>
@@ -4073,10 +4047,9 @@ function LoginPage({
             </button>
           </form>
 
-          <div className="mt-5 pt-4 border-t border-teal-200/60 dark:border-slate-800 space-y-3">
-            <PWAInstallButton variant="sidebar" className="w-full justify-center" />
+          <div className="mt-5 pt-4 border-t border-teal-200/60 dark:border-slate-800">
             <p className="text-[11px] text-center text-slate-500 dark:text-slate-400 font-semibold">
-              Hỗ trợ máy tính, điện thoại Android & iPhone (iOS) • Đào Minh Tâm - Zalo 0366000555
+              Hệ thống Quản lý Giáo dục Hoàng Gia • Hỗ trợ Zalo 0366000555
             </p>
           </div>
         </div>

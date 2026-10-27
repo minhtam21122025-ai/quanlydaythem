@@ -48,14 +48,14 @@ const SectionBanner: React.FC<SectionBannerProps> = ({
 
   return (
     <div className="space-y-4 w-full">
-      {/* Main Deep Emerald Header Card (Matching Image 2) */}
-      <div className="w-full rounded-3xl bg-gradient-to-br from-[#065f46] via-[#075e46] to-[#054d3b] p-5 sm:p-7 lg:p-8 text-white shadow-sm border border-emerald-900/40 overflow-hidden">
+      {/* Main Deep Emerald Header Card (Matching Image 2, Mobile-Refined) */}
+      <div className="w-full rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#065f46] via-[#075e46] to-[#054d3b] p-4 sm:p-7 lg:p-8 text-white shadow-sm border border-emerald-900/40 overflow-hidden">
         {onBack && (
-          <div className="mb-4">
+          <div className="mb-3.5 sm:mb-4">
             <button
               type="button"
               onClick={onBack}
-              className="inline-flex items-center gap-2 min-h-[34px] px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-semibold text-emerald-50 transition-colors"
+              className="inline-flex items-center gap-2 min-h-[36px] px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/15 text-xs font-semibold text-emerald-50 transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Quay lại trang chủ</span>
@@ -64,18 +64,18 @@ const SectionBanner: React.FC<SectionBannerProps> = ({
         )}
 
         {/* Top Row: Frosted Icon Tile + Kicker + Uppercase Title + Subtitle */}
-        <div className="flex items-start sm:items-center gap-4 sm:gap-5 w-full">
-          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
-            <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-300" />
+        <div className="flex items-start sm:items-center gap-3.5 sm:gap-5 w-full">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
+            <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-300" />
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-200/90">
+            <p className="text-[10.5px] sm:text-xs font-bold uppercase tracking-wider text-emerald-200/90">
               {effectiveKicker}
             </p>
-            <h2 className="text-xl sm:text-2xl lg:text-[28px] font-extrabold tracking-tight text-white uppercase leading-tight mt-0.5">
+            <h2 className="text-lg sm:text-2xl lg:text-[28px] font-extrabold tracking-tight text-white uppercase leading-tight mt-0.5">
               {title}
             </h2>
-            <p className="text-sm sm:text-[15px] text-emerald-50/90 mt-1.5 leading-relaxed font-medium w-full">
+            <p className="text-xs sm:text-[15px] text-emerald-50/90 mt-1 sm:mt-1.5 leading-relaxed font-medium w-full">
               {subtitle}
             </p>
           </div>
@@ -83,9 +83,9 @@ const SectionBanner: React.FC<SectionBannerProps> = ({
 
         {/* Hairline Divider & Action Buttons + 4 Stat Cards Inside Green Banner */}
         {(actions || (stats && stats.length > 0)) && (
-          <div className="mt-6 pt-5 border-t border-white/15 space-y-5">
+          <div className="mt-5 pt-4 sm:mt-6 sm:pt-5 border-t border-white/15 space-y-4 sm:space-y-5">
             {actions && (
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 [&>div]:flex [&>div]:flex-col sm:[&>div]:flex-row [&>div]:w-full sm:[&>div]:w-auto [&>div]:gap-2.5 [&_button]:justify-center">
                 {actions}
               </div>
             )}
@@ -93,7 +93,7 @@ const SectionBanner: React.FC<SectionBannerProps> = ({
             {stats && stats.length > 0 && (
               <div
                 className={cn(
-                  'grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4',
+                  'grid grid-cols-2 gap-2.5 sm:gap-4',
                   stats.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'
                 )}
               >
@@ -112,28 +112,28 @@ const SectionBanner: React.FC<SectionBannerProps> = ({
                   return (
                     <div
                       key={idx}
-                      className="rounded-2xl bg-white/[0.08] border border-white/15 px-4 py-4 sm:px-5 sm:py-4.5 flex flex-col justify-between"
+                      className="rounded-xl sm:rounded-2xl bg-white/[0.08] border border-white/15 px-3.5 py-3 sm:px-5 sm:py-4.5 flex flex-col justify-between min-w-0"
                     >
-                      <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wide text-emerald-100/85">
+                      <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wide text-emerald-100/85 leading-snug">
                         {stat.label}
                       </p>
-                      <div className="mt-2 flex items-baseline gap-1.5 flex-wrap">
+                      <div className="mt-1.5 sm:mt-2 flex items-baseline gap-1 sm:gap-1.5 flex-wrap">
                         <span
                           className={cn(
-                            'text-2xl sm:text-[26px] font-extrabold tabular-nums tracking-tight leading-none',
+                            'text-lg sm:text-[26px] font-extrabold tabular-nums tracking-tight leading-none break-all sm:break-normal',
                             valueColorClass
                           )}
                         >
                           {stat.value}
                         </span>
                         {stat.unit && (
-                          <span className="text-xs sm:text-sm font-semibold text-emerald-50/90">
+                          <span className="text-[11px] sm:text-sm font-semibold text-emerald-50/90">
                             {stat.unit}
                           </span>
                         )}
                       </div>
                       {subText && !stat.unit && (
-                        <p className="text-[11px] font-medium text-emerald-100/75 mt-1.5 truncate">
+                        <p className="text-[10.5px] sm:text-[11px] font-medium text-emerald-100/75 mt-1 truncate">
                           {subText}
                         </p>
                       )}

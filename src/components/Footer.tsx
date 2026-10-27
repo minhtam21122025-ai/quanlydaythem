@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
           <div className="space-y-4 text-sm sm:text-base">
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
               Chào mừng Quý Thầy Cô đến với <span className="font-bold text-teal-700 dark:text-teal-400">HOÀNG GIA</span>.
-              Hệ thống được thiết kế tối ưu dành riêng cho các thầy cô và trung tâm dạy thêm trên máy tính, điện thoại Android và iOS.
+              Hệ thống được thiết kế tối ưu, hiển thị sắc nét và thuận tiện thao tác trên cả máy tính và điện thoại.
             </p>
             <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
               Bao gồm các phân hệ trọng tâm:{' '}
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-white dark:bg-slate-900 py-10 px-5 lg:px-8 mt-12 mb-16 lg:mb-0 border border-slate-200/90 dark:border-slate-800 rounded-2xl">
+    <footer className="bg-white dark:bg-slate-900 py-8 sm:py-10 px-4 sm:px-6 lg:px-8 mt-10 mb-4 lg:mb-0 border border-slate-200/90 dark:border-slate-800 rounded-2xl">
       <div className="w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
           {/* Column 1 */}
@@ -169,9 +169,9 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
+        <div className="mt-8 pt-6 border-t border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-medium text-center sm:text-left">
           <p>© {new Date().getFullYear()} Hệ thống Giáo dục Hoàng Gia. Bảo lưu mọi quyền.</p>
-          <p>Tương thích Máy tính · Điện thoại Android · iPhone / iPad (iOS)</p>
+          <p>Quản lý Học sinh · Học tập · Chương trình dạy · Tài chính · Thuế HKD</p>
         </div>
       </div>
 
